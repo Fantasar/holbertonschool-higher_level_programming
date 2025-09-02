@@ -1,0 +1,1 @@
+voici mon readme pour les exercices sur les boucles en python.
