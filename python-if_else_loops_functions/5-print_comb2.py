@@ -1,5 +1,7 @@
-for i in range(0, 100):
-    if i == 99:
-        print(f"{i:02}")
-    else:
-        print(f"{i:02}, ", end="")
+#!/usr/bin/python3
+count = 0
+
+while count < 99:
+    print("{:02d},".format(count), end="")
+    count += 1
+print("{:02d}".format(count))
