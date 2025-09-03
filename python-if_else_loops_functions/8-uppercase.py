@@ -1,10 +1,11 @@
 #!/usr/bin/python3
 def uppercase(str):
+    resultat = ""
     for count in str:
         val = ord(count)
         if 'a' <= count <= 'z':
             valeur = val - 32
-            print("{}".format(chr(valeur)), end="")
+            resultat += chr(valeur)
         else:
-            print("{}".format(count), end="")
-    print()
+            resultat += count
+    print("{}".format(resultat))
