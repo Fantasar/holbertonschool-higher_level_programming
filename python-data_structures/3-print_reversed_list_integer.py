@@ -5,5 +5,5 @@ def print_reversed_list_integer(my_list=[]):
     a = 0
     longeur = len(my_list)
     while a < longeur:
-        print("{}".format(my_list[a]))
+        print("{:d}".format(my_list[a]))
         a += 1
