@@ -8,7 +8,7 @@ def print_matrix_integer(matrix=[[]]):
         position = 0
 
         while position < largeur:
-            print("{}".format(matrix[index][position]), end=" ")
+            print("{:d}".format(matrix[index][position]), end=" ")
             position += 1
 
         print("")
