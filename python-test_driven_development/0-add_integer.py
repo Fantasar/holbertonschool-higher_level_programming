@@ -4,7 +4,6 @@ This module provides a function to add two integers,
 ensuring that both inputs are integers or floats.
 If inputs are floats, they are cast to integers before addition.
 """
-import math
 
 
 def add_integer(a, b=98):
@@ -22,6 +21,12 @@ def add_integer(a, b=98):
     Raises:
         TypeError: If a or b are not integers or floats.
     """
+
+    if not isinstance(a, (int, float)):
+        raise TypeError("a must be an integer")
+    if not isinstance(b, (int, float)):
+        raise TypeError("b must be an integer")
+
     if not isinstance(a, (int, float)):
         raise TypeError("a must be an integer")
     if not isinstance(b, (int, float)):
