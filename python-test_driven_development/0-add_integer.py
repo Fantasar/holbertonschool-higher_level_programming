@@ -4,6 +4,7 @@ This module provides a function to add two integers,
 ensuring that both inputs are integers or floats.
 If inputs are floats, they are cast to integers before addition.
 """
+import math
 
 
 def add_integer(a, b=98):
@@ -30,5 +31,5 @@ def add_integer(a, b=98):
         raise ValueError("a cannot be NaN or infinity")
     if isinstance(b, float) and (math.isnan(b) or math.isinf(b)):
         raise ValueError("b cannot be NaN or infinity")
-    
+
     return int(a) + int(b)
