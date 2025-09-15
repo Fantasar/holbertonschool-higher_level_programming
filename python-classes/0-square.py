@@ -1,4 +1,4 @@
-#!/sr/bin/python3
+#!/usr/bin/python3
 """
 This moduls define a square ans prints.
 """

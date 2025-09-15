@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """
 Is modules for print géométrique cube.
 """
