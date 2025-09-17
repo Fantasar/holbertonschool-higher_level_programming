@@ -16,8 +16,8 @@ class Rectangle:
         methods for attribut width and height.
         """
         Rectangle.number_of_instances += 1
-        self._Rectangle__width = width
-        self._Rectangle__height = height
+        self.width = width
+        self.height = height
 
     @property
     def width(self):
@@ -36,12 +36,12 @@ class Rectangle:
         ValueError : Is < at 0
 
         """
-        if not isinstance(self._Rectangle__width, int):
+        if not isinstance(value, int):
             raise TypeError("width must be an integer")
-        if self._Rectangle__width < 0:
+        if value < 0:
             raise ValueError("width must be >= 0")
 
-        self._Rectangle__width = value
+        self.__width = value
 
     @property
     def height(self):
@@ -60,12 +60,12 @@ class Rectangle:
         ValueError : Is < at 0
 
         """
-        if not isinstance(self._Rectangle__height, int):
+        if not isinstance(value, int):
             raise TypeError("height must be an integer")
-        if self._Rectangle__height < 0:
+        if value < 0:
             raise ValueError("height must be >= 0")
 
-        self._Rectangle__height = value
+        self.__height = value
 
     def area(self):
         """
@@ -128,6 +128,5 @@ class Rectangle:
 
     @classmethod
     def square(cls, size=0):
-        value = cls(size, size)
 
-        return value
+        return cls(size, size)
