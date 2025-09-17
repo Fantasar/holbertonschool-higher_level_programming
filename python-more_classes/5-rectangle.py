@@ -79,7 +79,7 @@ class Rectangle:
 
     def __str__(self):
         """
-        Methode pour imprimer un rectangle avec str
+        Methode for print a rectangle with str
         """
         if self.height == 0 or self.width == 0:
             return ""
@@ -92,8 +92,14 @@ class Rectangle:
         return chaine
 
     def __repr__(self):
+        """
+        Methode for print object
+        """
         return ("Rectangle({}, {})".format
                 (self._Rectangle__width, self._Rectangle__height))
 
     def __del__(self):
+        """
+        Methode for delete instance rectangle
+        """
         print("Bye rectangle...")
