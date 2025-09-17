@@ -12,15 +12,15 @@ class Square:
         """
         Is function for controls size of square.
         """
-        self._size = size
-        self._position = position
+        self.__size = size
+        self.__position = position
 
     @property
     def size(self):
         """
         This methode return Square
         """
-        return self._size
+        return self.__size
 
     @size.setter
     def size(self, value):
@@ -36,14 +36,14 @@ class Square:
         if value < 0:
             raise ValueError("size must be >= 0")
 
-        self._size = value
+        self.__size = value
 
     @property
     def position(self):
         """
         Methode position
         """
-        return self._position
+        return self.__position
 
     @position.setter
     def position(self, value):
@@ -55,19 +55,19 @@ class Square:
         """
 
         if not isinstance(value, tuple):
-            raise TypeError("Values is not tuple")
+            raise TypeError("position must be a tuple of 2 positive integers")
         if len(value) != 2 or not all(isinstance(num, int) for num in value):
             raise TypeError("position must be a tuple of 2 positive integers")
         if value[0] < 0 or value[1] < 0:
             raise ValueError("position must be a tuple of 2 positive integers")
 
-        self._position = value
+        self.__position = value
 
     def area(self):
         """
         Method instance for calculs area a square
         """
-        return self._size * self._size
+        return self.__size * self.__size
 
     def my_print(self):
         """
@@ -76,15 +76,15 @@ class Square:
         Args :
         idx & pos : int for loops
         """
-        if self._size == 0:
+        if self.__size == 0:
             print("")
             return
 
-        for vide in range(self._position[1]):
+        for vide in range(self.__position[1]):
             print("")
-        for longeur in range(self._size):
-            for espace in range(self.position[0]):
+        for longeur in range(self.__size):
+            for espace in range(self.__position[0]):
                 print(" ", end="")
-            for colonne in range(self._size):
+            for colonne in range(self.__size):
                 print("{}".format('#'), end="")
             print("")
