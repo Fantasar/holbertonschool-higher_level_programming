@@ -50,7 +50,7 @@ class Square:
         """
         method position controls:
         Raise:
-        TypeError : Is not int in tuples
+        TypeError : Is not int in tuple
         ValueError : If values is < 0
         """
 
