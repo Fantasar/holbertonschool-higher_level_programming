@@ -12,8 +12,8 @@ class Square:
         """
         Is function for controls size of square.
         """
-        self.__size = size
-        self.__position = position
+        self.size = size
+        self.position = position
 
     @property
     def size(self):
@@ -58,8 +58,8 @@ class Square:
             raise TypeError("position must be a tuple of 2 positive integers")
         if len(value) != 2 or not all(isinstance(num, int) for num in value):
             raise TypeError("position must be a tuple of 2 positive integers")
-        if value[0] >= 0 or value[1] >= 0:
-            raise ValueError("position must be a tuple of 2 positive integers")
+        if value[0] < 0 or value[1] < 0:
+            raise TypeError("position must be a tuple of 2 positive integers")
 
         self.__position = value
 
