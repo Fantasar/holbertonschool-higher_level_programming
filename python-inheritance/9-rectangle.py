@@ -56,7 +56,7 @@ class Rectangle(BaseGeometry):
 
         self.__width = width
         self.__height = height
-    
+
     def area(self):
 
         """
@@ -64,9 +64,9 @@ class Rectangle(BaseGeometry):
         """
 
         return str(self.__width * self.__height)
-    
+
     def __str__(self):
-        
+
         """
         Retourne une string représentant Réctangle
         """
