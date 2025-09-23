@@ -104,7 +104,7 @@ class Rectangle(Shape):
         return 2 * (self.width + self.height)
 
 
-def shape_info(Shape):
+def shape_info(shape):
 
     """
     Méthode de class qui renvoir les infos sur
@@ -112,5 +112,5 @@ def shape_info(Shape):
     Cette méthode utilise la polymorphie du canard.
     """
 
-    print("Area: {}".format(Shape.area()))
-    print("Perimeter: {}".format(Shape.perimeter()))
+    print("Area: {}".format(shape.area()))
+    print("Perimeter: {}".format(shape.perimeter()))
