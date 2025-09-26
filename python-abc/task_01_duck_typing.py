@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 
 """
-Module qui permet de construire des class abstraite, d'afficher l'air
-ainsi que le périmètre d'une forma géométrique.
+Module qui permet de construire des class abstraite, d'afficher l'aire
+ainsi que le périmètre d'une forme géométrique.
 """
 
 from abc import ABC, abstractmethod
@@ -50,6 +50,7 @@ class Circle(Shape):
         Construction d'une méthode qui prends en
         paramètre le rayon.
         """
+
         self.radius = radius
 
     def area(self):
@@ -57,7 +58,6 @@ class Circle(Shape):
         """
         Création de la méthode pour caluler l'air
         """
-
         return math.pi * (self.radius ** 2)
 
     def perimeter(self):
@@ -91,7 +91,6 @@ class Rectangle(Shape):
         """
         Methode pour calculer l'air d'un rectangle
         """
-
         return self.width * self.height
 
     def perimeter(self):
