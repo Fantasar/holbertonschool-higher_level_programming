@@ -7,7 +7,7 @@ Module pour contrôler une forme de géométrie de base
 Rectangle = __import__('9-rectangle').Rectangle
 
 
-class Rectangle(BaseGeometry):
+class BaseGeometry:
 
     """
     Création de la class BaseGeometry
