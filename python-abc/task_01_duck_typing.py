@@ -9,80 +9,53 @@ import math
 
 
 class Shape(ABC):
-
-    """
-    Création d'une class abstraite Shape,avec la méthode abc
-    """
+    """Classe abstraite représentant une forme géométrique."""
 
     @abstractmethod
     def area(self):
-        """
-        Définition d'une méthode pour l'air d'une forme géométrique.
-        """
+        """Calcule l'aire de la forme géométrique."""
         pass
 
     @abstractmethod
     def perimeter(self):
-
-        """
-        Définition d'une méthode pour le périmètre d'une forme géométrique
-        """
+        """Calcule le périmètre de la forme géométrique."""
         pass
 
 
 class Circle(Shape):
-    """
-    Création d'une sous class de Shape, nommer Circle.
-    """
+    """Classe représentant un cercle."""
 
     def __init__(self, radius):
-        """
-        Construction d'une méthode qui prends en paramètre le rayon.
-        """
+        """Initialise un cercle avec son rayon."""
         self.radius = radius
 
     def area(self):
-        """
-        Création de la méthode pour caluler l'air
-        """
+        """Calcule l'aire du cercle."""
         return math.pi * (self.radius ** 2)
 
     def perimeter(self):
-        """
-        Création de la méthode pour calculer le périmètre.
-        """
+        """Calcule le périmètre (circonférence) du cercle."""
         return 2 * math.pi * self.radius
 
 
 class Rectangle(Shape):
-    """
-    Création d'une sous class de Shape, nommer Rectangle.
-    """
+    """Classe représentant un cercle."""
 
     def __init__(self, width, height):
-        """
-        Construction d'une méthode qui prends la hauteur et la largeur.
-        """
+        """Calcule l'aire du cercle."""
         self.width = width
         self.height = height
 
     def area(self):
-        """
-        Methode pour calculer l'air d'un rectangle
-        """
+        """Calcule le périmètre (circonférence) du cercle."""
         return self.width * self.height
 
     def perimeter(self):
-        """
-        Methode pour calculer le périmètre d'un rectangle.
-        """
+        """Calcule le périmètre du rectangle."""
         return 2 * (self.width + self.height)
 
 
 def shape_info(shape):
-
-    """
-    Affiche l'aire et le périmètre d'une forme
-    """
+    """Affiche l'aire et le périmètre d'une forme (duck typing)."""
     print("Area:", shape.area())
     print("Perimeter:", shape.perimeter())
