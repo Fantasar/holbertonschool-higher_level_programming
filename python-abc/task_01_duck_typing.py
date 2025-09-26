@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 
 """
 Module qui permet de construire des class abstraite, d'afficher l'aire
