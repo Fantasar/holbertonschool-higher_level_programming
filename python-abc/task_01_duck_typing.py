@@ -112,5 +112,5 @@ def shape_info(shape):
     Cette méthode utilise la polymorphie du canard.
     """
 
-    print("Area: {}".format(shape.area()))
-    print("Perimeter: {}".format(shape.perimeter()))
+    print("Area:", shape.area())
+    print("Perimeter:", shape.perimeter())
