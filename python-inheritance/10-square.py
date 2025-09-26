@@ -65,7 +65,7 @@ class Rectangle(BaseGeometry):
         Méthode d'instance pour calculer l'air du Rectangle.
         """
 
-        return str(self.__width * self.__height)
+        return self.__width * self.__height
 
     def __str__(self):
 
@@ -92,5 +92,5 @@ class Square(Rectangle):
         """
 
         self.integer_validator("size", size)
-        self.__size = size
         super(). __init__(size, size)
+        self.__size = size
