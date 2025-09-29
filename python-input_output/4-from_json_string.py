@@ -13,5 +13,4 @@ def from_json_string(my_str):
     Méthode d'instance qui retourne un objet représenter en json string.
     """
 
-    conteneur = json.loads(my_str)
-    print("{}".format(conteneur))
+    return json.loads(my_str)

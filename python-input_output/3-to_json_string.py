@@ -15,5 +15,4 @@ def to_json_string(my_obj):
     dans le format JSON.
     """
 
-    conteneur = json.dumps(my_obj)
-    print("{}".format(conteneur))
+    return json.dumps(my_obj)
