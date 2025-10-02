@@ -20,6 +20,10 @@ class CustomObject:
 
     def __init__(self, name: str, age: int, is_student: bool):
 
+        """
+        Méthode instance pour construire un une base de données.
+        """
+
         self.name = name
         self.age = age
         self.is_student = is_student
@@ -40,9 +44,11 @@ class CustomObject:
         Méthode d'instance qui permet de sérialiser un fichier en utilisant
         la méthode pickle
         """
-
-        with open(filename, "wb") as f:
-            pickle.dump(self, f)
+        try:
+            with open(filename, "wb") as f:
+                pickle.dump(self, f)
+        except Exception:
+            return None
 
     @classmethod
     def deserialize(cls, filename):
@@ -50,7 +56,9 @@ class CustomObject:
         """
         Méthode d'instance de class qui permet de désérialiser une classe
         """
-
+        try:
         with open(filename, "rb") as f:
             conteneur = pickle.load(f)
             return conteneur
+        except Exception:
+            return None
