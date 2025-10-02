@@ -17,12 +17,11 @@ def serialize_to_xml(dictionary, filename):
     La ville.
     """
 
-    root = ET.Element("root")
-    data = ET.SubElement(root, "data")
+    root = ET.Element("data")
 
-    ET.SubElement(data, 'name').text = str(dictionary['name'])
-    ET.SubElement(data, 'age').text = str(dictionary['age'])
-    ET.SubElement(data, 'city').text = str(dictionary['city'])
+    for key, value in dictionary.items():
+        child = ET.SubElement(root, key)
+        child.text = str(value)
 
     tree = ET.ElementTree(root)
     tree.write(filename)
@@ -43,15 +42,11 @@ def deserialize_from_xml(filename):
         tree = ET.parse(filename)
         root = tree.getroot()
 
-        for data in root.findall("data"):
-            name = data.find("name").text if data.find("name")
-            is not None else "N/A"
-            age = data.find("age").text if data.find("age")
-            is not None else "N/A"
-            city = data.find("city").text if data.find("city")
-            is not None else "N/A"
+        result = {}
+        for child in root:
+            result[child.tag] = child.text
 
-            return ("name: {}, age: {}, city: {}".format(name, age, city))
+        return result
 
     except ET.ParseError as e:
         print(f"Erreur de parsing XML : {e}")
