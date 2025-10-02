@@ -30,4 +30,4 @@ def load_and_deserialize(filename):
     with open(filename, "r", encoding="utf-8") as fichier:
         conteneur = json.load(fichier)
 
-    print("{}".format(conteneur))
+    return conteneur
