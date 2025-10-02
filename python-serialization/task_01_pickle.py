@@ -57,8 +57,8 @@ class CustomObject:
         Méthode d'instance de class qui permet de désérialiser une classe
         """
         try:
-        with open(filename, "rb") as f:
-            conteneur = pickle.load(f)
-            return conteneur
+            with open(filename, "rb") as f:
+                conteneur = pickle.load(f)
+                return conteneur
         except Exception:
             return None
