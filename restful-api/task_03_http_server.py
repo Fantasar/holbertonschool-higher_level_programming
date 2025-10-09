@@ -10,7 +10,7 @@ import socketserver
 import json
 
 
-class Simple_Serveur(BaseHTTPRequestHandler):
+class SimpleServeur(BaseHTTPRequestHandler):
 
     """
     Création de la classs Simple_serveur.
@@ -56,7 +56,7 @@ class Simple_Serveur(BaseHTTPRequestHandler):
 
 
 PORT = 8080
-Handler = Simple_Serveur
+Handler = SimpleServeur
 
 with socketserver.TCPServer(("", PORT), Handler) as httpd:
     print("serving at port", PORT)
