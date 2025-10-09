@@ -61,33 +61,12 @@ def add_user():
     Méthode pour ajouter un utilisateur dans la base de donnée
     """
 
-    data = request.get_json()
-
-    if not data:
-        return jsonify({"error": "Invalid JSON"}), 400
-
-    username = data.get("username")
-    name = data.get("name")
-    age = data.get("age")
-    city = data.get("city")
-
+    user_data = request.get_json()
+    username = user_data.get("username")
     if not username:
         return jsonify({"error": "Username is required"}), 400
-
-    if username in users:
-        return jsonify({"error": "Users already exists"}), 400
-
-    users[username] = {
-        "username": username,
-        "name": name,
-        "age": age,
-        "city": city
-    }
-
-    return jsonify({
-        "message": "User added",
-        "user": users[username]
-    }), 201
+    users[username] = user_data
+    return jsonify({"message": "User added", "user": user_data}), 201
 
 
 if __name__ == "__main__":
