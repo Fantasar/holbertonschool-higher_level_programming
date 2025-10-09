@@ -13,10 +13,6 @@ app = Flask(__name__)
 
 users = {}
 
-users = {
-    "jane": {"name": "Jane", "age": 28, "city": "Los Angeles"}
-}
-
 
 @app.route("/", methods=["GET"])
 def home():
@@ -24,7 +20,7 @@ def home():
     Méthode instance pour initialiser la page de garde
     """
 
-    return "<p>Welcome to the Flask API!</p>"
+    return "Welcome to the Flask API!"
 
 
 @app.route("/data", methods=["GET"])
@@ -42,7 +38,7 @@ def status():
     """
     Méthode d'instance pour indiquer l'état de la page web
     """
-    return "<p>OK</p>"
+    return "OK"
 
 
 @app.route("/users/<username>", methods=["GET"])
