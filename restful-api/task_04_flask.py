@@ -6,8 +6,7 @@ comme l'ajout d'un utilisateur dans un dictionnaire
 """
 
 from flask import Flask
-from flask import jsonify
-import json
+from flask import jsonify, request
 
 
 app = Flask(__name__)
@@ -57,10 +56,10 @@ def get_user(username):
     if user:
         return jsonify(user), 200
     else:
-        return ({"Error": "User not found"}), 404
+        return ({"error": "User not found"}), 404
 
 
-@app.route("/add_user/<username>", methods=["POST"])
+@app.route("/add_user", methods=["POST"])
 def add_user(username):
     """
     Méthode pour ajouter un utilisateur dans la base de donnée
