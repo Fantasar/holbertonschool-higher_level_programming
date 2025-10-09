@@ -60,7 +60,7 @@ def get_user(username):
 
 
 @app.route("/add_user", methods=["POST"])
-def add_user(username):
+def add_user():
     """
     Méthode pour ajouter un utilisateur dans la base de donnée
     """
