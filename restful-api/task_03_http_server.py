@@ -48,6 +48,12 @@ class SimpleServeur(BaseHTTPRequestHandler):
                     "A simple API built with http.server"}
             self.wfile.write(json.dumps(data).encode())
 
+        elif self.path == "/status":
+            self.send_response(200)
+            self.send_header("Content-type", "text/plain")
+            self.end_headers()
+            self.wfile.write(b"OK")
+
         else:
             self.send_response(404)
             self.send_header("Content-type", "text/plain")
@@ -55,7 +61,7 @@ class SimpleServeur(BaseHTTPRequestHandler):
             self.wfile.write("Endpoint not found".encode())
 
 
-PORT = 8080
+PORT = 8000
 Handler = SimpleServeur
 
 with socketserver.TCPServer(("", PORT), Handler) as httpd:
