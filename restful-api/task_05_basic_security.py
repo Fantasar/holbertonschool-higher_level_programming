@@ -80,8 +80,10 @@ def get_login():
     username = data["username"]
     password = data["password"]
 
-    if username not in users or not
-    check_password_hash(users[username]["password"], password):
+    if (
+    username not in users or
+    not check_password_hash(users[username]["password"], password)
+):
         return jsonify({"message": "Invalid credentials"}), 401
 
     access_token = create_access_token(
