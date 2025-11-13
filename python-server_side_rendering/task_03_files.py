@@ -31,7 +31,7 @@ def items():
     return render_template('items.html', items=items_list)
 
 
-@app.route('/source')
+@app.route('/products')
 def product_list():
     source = request.args.get('source')
     product_id = request.args.get('id')
@@ -39,10 +39,10 @@ def product_list():
     if source not in ['json', 'csv']:
         return render_template('product_display.html', error="Wrong source")
     if source == 'json':
-        product_list = read_json('product_json')
+        product_list = read_json('product.json')
 
     else:
-        product_list = read_csv('product_csv')
+        product_list = read_csv('product.csv')
 
     if product_id:
         product_id = int(product_id)
