@@ -32,20 +32,30 @@ def items():
 
 
 def read_json(filename):
-    with open(filename, 'r') as f:
-        data = json.load(f)
-    return data
+    try:
+        with open(filename, 'r') as f:
+            data = json.load(f)
+        return data
+    except FileNotFoundError:
+        return None
+    except json.JSONDecodeError:
+        return None
 
 
 def read_csv(filename):
-    product_list = []
-    with open(filename, 'r') as f:
-        reader = csv.DictReader(f)
-        for row in reader:
-            row['id'] = int(row['id'])
-            row['price'] = float(row['price'])
-            product_list.append(row)
-    return product_list
+    try:
+        product_list = []
+        with open(filename, 'r') as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                row['id'] = int(row['id'])
+                row['price'] = float(row['price'])
+                product_list.append(row)
+        return product_list
+    except FileNotFoundError:
+        return None
+    except ValueError:
+        return None
 
 
 @app.route('/products')
@@ -56,19 +66,27 @@ def product_list():
     if source not in ['json', 'csv']:
         return render_template('product_display.html', error="Wrong source")
     if source == 'json':
-        product_list = read_json('products.json')
+        products = read_json('products.json')
 
     else:
-        product_list = read_csv('products.csv')
+        products = read_csv('products.csv')
+
+    if products is None:
+        return render_template(
+            'product_display.html', error="Error reading file"
+            )
 
     if product_id:
-        product_id = int(product_id)
-        product_list = [p for p in product_list if p['id'] == product_id]
-        if not product_list:
-            return render_template(
-                'product_display.html', error="Product not found"
-                )
-    return render_template('product_display.html', products=product_list)
+        try:
+            product_id = int(product_id)
+            product_list = [p for p in product_list if p['id'] == product_id]
+            if not product_list:
+                return render_template(
+                    'product_display.html', error="Product not found"
+                    )
+        except ValueError:
+            return render_template('product_display.html', error="Invalid ID")
+    return render_template('product_display.html', products=products)
 
 
 if __name__ == '__main__':
