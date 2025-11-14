@@ -1,5 +1,6 @@
-#!/usr/bin/node
 const redcolor = document.getElementById('red_header');
+const value = document.querySelector('header');
+
 redcolor.addEventListener('click', () => {
-  redcolor.style.color = '#FF0000';
+  value.style.color = '#FF0000';
 });
