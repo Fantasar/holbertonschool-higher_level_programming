@@ -79,7 +79,7 @@ def product_list():
     if product_id:
         try:
             product_id = int(product_id)
-            product_list = [p for p in product_list if p['id'] == product_id]
+            products = [p for p in product_list if p['id'] == product_id]
             if not product_list:
                 return render_template(
                     'product_display.html', error="Product not found"
